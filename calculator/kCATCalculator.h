@@ -16,7 +16,7 @@
 
 - (id) initWithUserProfile:(UserProfileObject*) userProfile;
 
--(long) getMonthlyLifeStyleIncomeForRental;
--(long) getAnnualStateTaxesPaid;
--(long) getAnnualFederalTaxesPaid;
+-(float) getMonthlyLifeStyleIncomeForRental;
+-(float) getAnnualStateTaxesPaid;
+-(float) getAnnualFederalTaxesPaid;
 @end

@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface CalculatorUtilities : NSObject
-+(NSDictionary*) getDictionaryFromFile:(NSString*) fileName;
++(NSDictionary*) getDictionaryFromPlistFile:(NSString*) fileName;
++(NSArray*) getArrayFromPlistFile:(NSString *)fileName;
 @end

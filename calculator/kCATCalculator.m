@@ -28,35 +28,36 @@
     {
         // Initialization
         self.mUserProfile = userProfile;
-        self.mDeductionsAndExemptions = [CalculatorUtilities getDictionaryFromFile:@"ExemptionsAndStandardDeductions2013.plist"];
         
-        self.mStateSingleTaxTable = [self importTableFromFile:@"TaxTableStateSingle2013.plist"];
+        self.mDeductionsAndExemptions = [CalculatorUtilities getDictionaryFromPlistFile:@"ExemptionsAndStandardDeductions2013"];
+        
+        self.mStateSingleTaxTable = [self importTableFromFile:@"TaxTableStateSingle2013"];
     }
     
     return self;
 }
 
--(long) getMonthlyLifeStyleIncomeForRental
+-(float) getMonthlyLifeStyleIncomeForRental
 {
     if(!self.mUserProfile)
         return 0;
     
-    long annualStatesTaxesPaid = [self getAnnualStateTaxesPaid];
-    long annualFederalTaxesPaid = [self getAnnualFederalTaxesPaid];
+    float annualStatesTaxesPaid = [self getAnnualStateTaxesPaid];
+    float annualFederalTaxesPaid = [self getAnnualFederalTaxesPaid];
     
-    long montlyGrossIncome = self.mUserProfile.mAnnualGrossIncome/NUMBER_OF_MONTHS_IN_YEAR;
-    long monthlyStateTaxesPaid = annualStatesTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
-    long montlyFedralTaxesPaid = annualFederalTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+    float montlyGrossIncome = self.mUserProfile.mAnnualGrossIncome/NUMBER_OF_MONTHS_IN_YEAR;
+    float monthlyStateTaxesPaid = annualStatesTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
+    float montlyFedralTaxesPaid = annualFederalTaxesPaid/NUMBER_OF_MONTHS_IN_YEAR;
     
-    long totalMonthlyCosts = self.mUserProfile.mMonthlyRent + self.mUserProfile.mMonthlyCarPayments + self.mUserProfile.mMonthlyOtherFixedCosts;
-    long totalMonthlyTaxesPaid = monthlyStateTaxesPaid + montlyFedralTaxesPaid;
+    float totalMonthlyCosts = self.mUserProfile.mMonthlyRent + self.mUserProfile.mMonthlyCarPayments + self.mUserProfile.mMonthlyOtherFixedCosts;
+    float totalMonthlyTaxesPaid = monthlyStateTaxesPaid + montlyFedralTaxesPaid;
     
-    long monthlyLifestyleIncome = montlyGrossIncome - (totalMonthlyCosts + totalMonthlyTaxesPaid);
+    float monthlyLifestyleIncome = montlyGrossIncome - (totalMonthlyCosts + totalMonthlyTaxesPaid);
     
     return  monthlyLifestyleIncome;
 }
 
--(long) getAnnualStateTaxesPaid
+-(float) getAnnualStateTaxesPaid
 {
     if(!self.mUserProfile)
         return 0;
@@ -64,7 +65,7 @@
     return 0;
 }
 
--(long) getAnnualFederalTaxesPaid
+-(float) getAnnualFederalTaxesPaid
 {
     if(!self.mUserProfile)
         return 0;
@@ -72,7 +73,7 @@
     return 0;
 }
 
--(long) getAnnualAdjustedGrossIncome
+-(float) getAnnualAdjustedGrossIncome
 {
     if(!self.mUserProfile)
         return 0;
@@ -82,12 +83,12 @@
 
 ///////////////////StateTaxes/////////////////
 
--(long) getStateStandardDeduction
+-(float) getStateStandardDeduction
 {
     if(!self.mUserProfile)
         return 0;
     
-    long baseDeduction = [self.mDeductionsAndExemptions[@"BaseDeductionCaliforniaState"] longValue];
+    float baseDeduction = [self.mDeductionsAndExemptions[@"BaseDeductionCaliforniaState"] floatValue];
     
     if(self.mUserProfile.mMaritalStatus == StatusMarried)
         return baseDeduction * 2;
@@ -95,7 +96,7 @@
         return baseDeduction;
 }
 
--(long) getStateItemizedDeduction
+-(float) getStateItemizedDeduction
 {
     if(!self.mUserProfile)
         return 0;
@@ -103,12 +104,12 @@
     return 0;
 }
 
--(long) getStateExemptions
+-(float) getStateExemptions
 {
     if(!self.mUserProfile)
         return 0;
     
-    long baseDeduction = [self.mDeductionsAndExemptions[@"BaseExemptionCaliforniaState"] longValue];
+    float baseDeduction = [self.mDeductionsAndExemptions[@"BaseExemptionCaliforniaState"] floatValue];
     if (self.mUserProfile.mMaritalStatus == StatusMarried)
         return baseDeduction*2;
     else
@@ -117,24 +118,24 @@
     return 0;
 }
 
--(long) getAnnualStateTaxableIncome
+-(float) getAnnualStateTaxableIncome
 {
     if(!self.mUserProfile)
         return 0;
     
-    long standardDeduction = [self getStateStandardDeduction];
-    long itemizedDeduction = [self getStateItemizedDeduction];
+    float standardDeduction = [self getStateStandardDeduction];
+    float itemizedDeduction = [self getStateItemizedDeduction];
     
-    long stateDeduction = (standardDeduction > itemizedDeduction) ? standardDeduction : itemizedDeduction;
-    long exemption = [self getStateExemptions];
-    long adjustedAnnualGrossIncome = [self getAnnualAdjustedGrossIncome];
+    float stateDeduction = (standardDeduction > itemizedDeduction) ? standardDeduction : itemizedDeduction;
+    float exemption = [self getStateExemptions];
+    float adjustedAnnualGrossIncome = [self getAnnualAdjustedGrossIncome];
     
     return (adjustedAnnualGrossIncome - (stateDeduction + exemption));
 }
 
 ///////////////////FederalTaxes/////////////////
 
--(long) getFederalStandardDeduction
+-(float) getFederalStandardDeduction
 {
     if(!self.mUserProfile)
         return 0;
@@ -142,7 +143,7 @@
     return 0;
 }
 
--(long) getFederalItemizedDeduction
+-(float) getFederalItemizedDeduction
 {
     if(!self.mUserProfile)
         return 0;
@@ -150,7 +151,7 @@
     return 0;
 }
 
--(long) getFederalExemptions
+-(float) getFederalExemptions
 {
     if(!self.mUserProfile)
         return 0;
@@ -158,7 +159,7 @@
     return 0;
 }
 
--(long) getAnnualFederalTaxableIncome
+-(float) getAnnualFederalTaxableIncome
 {
     if(!self.mUserProfile)
         return 0;
@@ -173,7 +174,7 @@
     
     NSMutableArray* array = [[NSMutableArray alloc] init];
     
-    NSDictionary* tableDict = [CalculatorUtilities getDictionaryFromFile:fileName];
+    NSArray* tableDict = [CalculatorUtilities getArrayFromPlistFile:fileName];
     for (NSDictionary* blockDict in tableDict)
     {
         TaxBlock* block = [[TaxBlock alloc] init];

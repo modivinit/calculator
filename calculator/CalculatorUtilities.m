@@ -10,16 +10,22 @@
 
 @implementation CalculatorUtilities
 
-+(NSDictionary*) getDictionaryFromFile:(NSString*) fileName
++(NSDictionary*) getDictionaryFromPlistFile:(NSString *)fileName
 {
     if(!fileName)
         return nil;
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString* fileNamePath = [[paths objectAtIndex:0]
-                          stringByAppendingPathComponent:fileName];
-    
-    return [[NSDictionary alloc] initWithContentsOfFile:fileNamePath];
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+    return [[NSDictionary alloc] initWithContentsOfFile:path];
 }
+
++(NSArray*) getArrayFromPlistFile:(NSString *)fileName
+{
+    if(!fileName)
+        return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+    return [[NSArray alloc] initWithContentsOfFile:path];
+}
+
 @end

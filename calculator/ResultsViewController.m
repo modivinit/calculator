@@ -7,6 +7,7 @@
 //
 
 #import "ResultsViewController.h"
+#import "kCATCalculator.h"
 
 @interface ResultsViewController ()
 
@@ -27,6 +28,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UserProfileObject* userProfile = [[UserProfileObject alloc] init];
+    userProfile.mAnnualGrossIncome = 100000;
+    userProfile.mAnnualRetirementSavings = 10000;
+    userProfile.mMaritalStatus = StatusMarried;
+    userProfile.mNumberOfChildren = 1;
+    userProfile.mMonthlyCarPayments = 200;
+    userProfile.mMonthlyOtherFixedCosts = 175;
+    userProfile.mMonthlyRent = 1250;
+    
+    kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userProfile];
+    float monthlylifestyle = [calculator getMonthlyLifeStyleIncomeForRental];
+    self.mCurrentLifestyleIncomeLabel.text = [NSString stringWithFormat:@"%f", monthlylifestyle];
 }
 
 - (void)didReceiveMemoryWarning

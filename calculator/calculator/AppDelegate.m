@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ResultsViewController.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    ResultsViewController* vc = [[ResultsViewController alloc] init];
+    [self.window setRootViewController:vc];
     return YES;
 }
 
