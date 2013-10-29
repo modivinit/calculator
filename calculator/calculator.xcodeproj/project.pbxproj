@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9EF8F14C181F77E1005C5ED1 /* TaxTableFederalMFJ2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EF8F149181F77E1005C5ED1 /* TaxTableFederalMFJ2013.plist */; };
+		9EF8F14D181F77E1005C5ED1 /* TaxTableFederalSingle2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EF8F14A181F77E1005C5ED1 /* TaxTableFederalSingle2013.plist */; };
+		9EF8F14E181F77E1005C5ED1 /* TaxTableStateMFJ2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EF8F14B181F77E1005C5ED1 /* TaxTableStateMFJ2013.plist */; };
 		D6A2CBB3181EEF0600CD0BF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A2CBB2181EEF0600CD0BF0 /* Foundation.framework */; };
 		D6A2CBB5181EEF0600CD0BF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A2CBB4181EEF0600CD0BF0 /* CoreGraphics.framework */; };
 		D6A2CBB7181EEF0600CD0BF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A2CBB6181EEF0600CD0BF0 /* UIKit.framework */; };
@@ -26,9 +29,6 @@
 		D6A2CBED181F0B4B00CD0BF0 /* ExemptionsAndStandardDeductions2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A2CBEC181F0B4B00CD0BF0 /* ExemptionsAndStandardDeductions2013.plist */; };
 		D6A2CBF2181F0E7900CD0BF0 /* CalculatorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A2CBF1181F0E7900CD0BF0 /* CalculatorUtilities.m */; };
 		D6A2CBF4181F150700CD0BF0 /* TaxTableStateSingle2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A2CBF3181F150700CD0BF0 /* TaxTableStateSingle2013.plist */; };
-		D6A2CBF6181F151B00CD0BF0 /* TaxTableStateMFJ2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A2CBF5181F151B00CD0BF0 /* TaxTableStateMFJ2013.plist */; };
-		D6A2CBF8181F153700CD0BF0 /* TaxTableFederalSingle2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A2CBF7181F153700CD0BF0 /* TaxTableFederalSingle2013.plist */; };
-		D6A2CBFA181F155300CD0BF0 /* TaxTableFederalMFJ2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A2CBF9181F155300CD0BF0 /* TaxTableFederalMFJ2013.plist */; };
 		D6A2CBFD181F1C8D00CD0BF0 /* TaxBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A2CBFC181F1C8D00CD0BF0 /* TaxBlock.m */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9EF8F149181F77E1005C5ED1 /* TaxTableFederalMFJ2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalMFJ2013.plist; sourceTree = "<group>"; };
+		9EF8F14A181F77E1005C5ED1 /* TaxTableFederalSingle2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalSingle2013.plist; sourceTree = "<group>"; };
+		9EF8F14B181F77E1005C5ED1 /* TaxTableStateMFJ2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableStateMFJ2013.plist; sourceTree = "<group>"; };
 		D6A2CBAF181EEF0600CD0BF0 /* calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A2CBB2181EEF0600CD0BF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6A2CBB4181EEF0600CD0BF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,9 +73,6 @@
 		D6A2CBF0181F0E7900CD0BF0 /* CalculatorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorUtilities.h; sourceTree = "<group>"; };
 		D6A2CBF1181F0E7900CD0BF0 /* CalculatorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorUtilities.m; sourceTree = "<group>"; };
 		D6A2CBF3181F150700CD0BF0 /* TaxTableStateSingle2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableStateSingle2013.plist; sourceTree = "<group>"; };
-		D6A2CBF5181F151B00CD0BF0 /* TaxTableStateMFJ2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableStateMFJ2013.plist; sourceTree = "<group>"; };
-		D6A2CBF7181F153700CD0BF0 /* TaxTableFederalSingle2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalSingle2013.plist; sourceTree = "<group>"; };
-		D6A2CBF9181F155300CD0BF0 /* TaxTableFederalMFJ2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableFederalMFJ2013.plist; sourceTree = "<group>"; };
 		D6A2CBFB181F1C8D00CD0BF0 /* TaxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxBlock.h; sourceTree = "<group>"; };
 		D6A2CBFC181F1C8D00CD0BF0 /* TaxBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaxBlock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,9 +106,9 @@
 			children = (
 				D6A2CBFB181F1C8D00CD0BF0 /* TaxBlock.h */,
 				D6A2CBFC181F1C8D00CD0BF0 /* TaxBlock.m */,
-				D6A2CBF9181F155300CD0BF0 /* TaxTableFederalMFJ2013.plist */,
-				D6A2CBF7181F153700CD0BF0 /* TaxTableFederalSingle2013.plist */,
-				D6A2CBF5181F151B00CD0BF0 /* TaxTableStateMFJ2013.plist */,
+				9EF8F149181F77E1005C5ED1 /* TaxTableFederalMFJ2013.plist */,
+				9EF8F14A181F77E1005C5ED1 /* TaxTableFederalSingle2013.plist */,
+				9EF8F14B181F77E1005C5ED1 /* TaxTableStateMFJ2013.plist */,
 				D6A2CBF3181F150700CD0BF0 /* TaxTableStateSingle2013.plist */,
 				D6A2CBEC181F0B4B00CD0BF0 /* ExemptionsAndStandardDeductions2013.plist */,
 				D6A2CBF0181F0E7900CD0BF0 /* CalculatorUtilities.h */,
@@ -263,13 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6A2CBE5181EEF3000CD0BF0 /* ResultsViewController.xib in Resources */,
-				D6A2CBFA181F155300CD0BF0 /* TaxTableFederalMFJ2013.plist in Resources */,
 				D6A2CBED181F0B4B00CD0BF0 /* ExemptionsAndStandardDeductions2013.plist in Resources */,
 				D6A2CBBD181EEF0600CD0BF0 /* InfoPlist.strings in Resources */,
-				D6A2CBF6181F151B00CD0BF0 /* TaxTableStateMFJ2013.plist in Resources */,
 				D6A2CBF4181F150700CD0BF0 /* TaxTableStateSingle2013.plist in Resources */,
 				D6A2CBC5181EEF0600CD0BF0 /* Images.xcassets in Resources */,
-				D6A2CBF8181F153700CD0BF0 /* TaxTableFederalSingle2013.plist in Resources */,
+				9EF8F14E181F77E1005C5ED1 /* TaxTableStateMFJ2013.plist in Resources */,
+				9EF8F14C181F77E1005C5ED1 /* TaxTableFederalMFJ2013.plist in Resources */,
+				9EF8F14D181F77E1005C5ED1 /* TaxTableFederalSingle2013.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +495,7 @@
 				D6A2CBDD181EEF0700CD0BF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6A2CBDE181EEF0700CD0BF0 /* Build configuration list for PBXNativeTarget "calculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +504,7 @@
 				D6A2CBE0181EEF0700CD0BF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

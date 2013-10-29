@@ -68,7 +68,7 @@
 	</dict>
 	<dict>
 		<key>limit</key>
-		<integer>508500</integer>
+		<real>100000000</real>
 		<key>fixedAmount</key>
 		<real>49429.5</real>
 		<key>percentage</key>

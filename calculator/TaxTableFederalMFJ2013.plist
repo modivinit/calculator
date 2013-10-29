@@ -1,5 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<array>
+	<dict>
+		<key>limit</key>
+		<integer>8300</integer>
+		<key>fixedAmount</key>
+		<integer>0</integer>
+		<key>percentage</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>26150</integer>
+		<key>fixedAmount</key>
+		<integer>0</integer>
+		<key>percentage</key>
+		<integer>10</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>80800</integer>
+		<key>fixedAmount</key>
+		<integer>1785</integer>
+		<key>percentage</key>
+		<integer>15</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>154700</integer>
+		<key>fixedAmount</key>
+		<real>9982.5</real>
+		<key>percentage</key>
+		<integer>25</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>231350</integer>
+		<key>fixedAmount</key>
+		<real>28457.5</real>
+		<key>percentage</key>
+		<integer>28</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>406650</integer>
+		<key>fixedAmount</key>
+		<real>49919.5</real>
+		<key>percentage</key>
+		<integer>33</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>458300</integer>
+		<key>fixedAmount</key>
+		<real>107768.5</real>
+		<key>percentage</key>
+		<integer>35</integer>
+	</dict>
+	<dict>
+		<key>limit</key>
+		<integer>100000000</integer>
+		<key>fixedAmount</key>
+		<integer>125846</integer>
+		<key>percentage</key>
+		<real>39.6</real>
+	</dict>
+</array>
 </plist>
