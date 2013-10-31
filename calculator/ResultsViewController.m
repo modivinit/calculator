@@ -29,13 +29,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UserProfileObject* userProfile = [[UserProfileObject alloc] init];
-    userProfile.mAnnualGrossIncome = 100000;
-    userProfile.mAnnualRetirementSavings = 10000;
+    userProfile.mAnnualGrossIncome = 110000;
+    userProfile.mAnnualRetirementSavings = 7000;
     userProfile.mMaritalStatus = StatusMarried;
-    userProfile.mNumberOfChildren = 1;
-    userProfile.mMonthlyCarPayments = 200;
-    userProfile.mMonthlyOtherFixedCosts = 175;
-    userProfile.mMonthlyRent = 1250;
+    userProfile.mNumberOfChildren = 0;
+    userProfile.mMonthlyCarPayments = 0;
+    userProfile.mMonthlyOtherFixedCosts = 1250;
+    userProfile.mMonthlyRent = 1300;
     
     kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userProfile];
     float monthlylifestyle = [calculator getMonthlyLifeStyleIncomeForRental];

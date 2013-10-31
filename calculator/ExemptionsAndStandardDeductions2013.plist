@@ -5,9 +5,9 @@
 	<key>BaseExemptionCaliforniaState</key>
 	<integer>106</integer>
 	<key>BaseDeductionCaliforniaState</key>
-	<integer>3906</integer>
+	<real>3769</real>
 	<key>BaseExemptionFederal</key>
-	<integer>3900</integer>
+	<real>3900</real>
 	<key>BaseDeductionFedral</key>
 	<string>6100</string>
 </dict>

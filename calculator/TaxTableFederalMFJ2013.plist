@@ -3,7 +3,7 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>8300</integer>
 		<key>fixedAmount</key>
 		<integer>0</integer>
@@ -11,7 +11,7 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>26150</integer>
 		<key>fixedAmount</key>
 		<integer>0</integer>
@@ -19,7 +19,7 @@
 		<integer>10</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>80800</integer>
 		<key>fixedAmount</key>
 		<integer>1785</integer>
@@ -27,7 +27,7 @@
 		<integer>15</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>154700</integer>
 		<key>fixedAmount</key>
 		<real>9982.5</real>
@@ -35,7 +35,7 @@
 		<integer>25</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>231350</integer>
 		<key>fixedAmount</key>
 		<real>28457.5</real>
@@ -43,7 +43,7 @@
 		<integer>28</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>406650</integer>
 		<key>fixedAmount</key>
 		<real>49919.5</real>
@@ -51,7 +51,7 @@
 		<integer>33</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>458300</integer>
 		<key>fixedAmount</key>
 		<real>107768.5</real>
@@ -59,7 +59,7 @@
 		<integer>35</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<integer>100000000</integer>
 		<key>fixedAmount</key>
 		<integer>125846</integer>

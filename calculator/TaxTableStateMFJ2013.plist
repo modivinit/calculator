@@ -3,7 +3,7 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>limit</key>
+		<key>limitsDifference</key>
 		<real>15164</real>
 		<key>fixedAmount</key>
 		<integer>0</integer>
@@ -11,64 +11,64 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>35952</real>
+		<key>limitsDifference</key>
+		<integer>20788</integer>
 		<key>fixedAmount</key>
 		<real>151.64</real>
 		<key>percentage</key>
 		<integer>2</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>56742</real>
+		<key>limitsDifference</key>
+		<integer>20798</integer>
 		<key>fixedAmount</key>
 		<real>567.4</real>
 		<key>percentage</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>78768</real>
+		<key>limitsDifference</key>
+		<real>22026</real>
 		<key>fixedAmount</key>
 		<real>1399</real>
 		<key>percentage</key>
 		<integer>6</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>99548</real>
+		<key>limitsDifference</key>
+		<integer>20780</integer>
 		<key>fixedAmount</key>
 		<real>2720.56</real>
 		<key>percentage</key>
 		<integer>8</integer>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>508500</real>
+		<key>limitsDifference</key>
+		<integer>408952</integer>
 		<key>fixedAmount</key>
 		<real>4382.96</real>
 		<key>percentage</key>
 		<real>9.300000000000001</real>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>610200</real>
+		<key>limitsDifference</key>
+		<integer>101700</integer>
 		<key>fixedAmount</key>
 		<real>42415.5</real>
 		<key>percentage</key>
 		<real>10.3</real>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>1017000</real>
+		<key>limitsDifference</key>
+		<integer>406800</integer>
 		<key>fixedAmount</key>
 		<real>52890.6</real>
 		<key>percentage</key>
 		<real>11.3</real>
 	</dict>
 	<dict>
-		<key>limit</key>
-		<real>100000000</real>
+		<key>limitsDifference</key>
+		<real>1017000</real>
 		<key>fixedAmount</key>
 		<real>98859</real>
 		<key>percentage</key>
