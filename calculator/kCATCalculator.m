@@ -60,30 +60,21 @@
     return  monthlyLifestyleIncome;
 }
 
--(float) getAnnualStateTaxesPaid
+-(float) getTaxesForTable:(NSArray*)taxBlockArray andTaxableIncome:(float) taxableIncome
 {
-    if(!self.mUserProfile)
+    if(!taxBlockArray)
         return 0;
     
-    float finalAnnualStateTaxesPaid = 0;
-    
-    float stateTaxableIncome = [self getAnnualStateTaxableIncome];
-    NSArray* taxBlockArray = nil;
-    if(self.mUserProfile.mMaritalStatus == StatusMarried)
-        taxBlockArray = self.mStateMFJTaxTable;
-    else
-        taxBlockArray = self.mStateSingleTaxTable;
-
     float differenceIncomeForBlock = 0;
     float applicableIncomeForBlock = 0;
-    float baseIncomeForBlock = stateTaxableIncome;
-    
+    float baseIncomeForBlock = taxableIncome;
+    float finalTaxesPaid = 0;
+
     float upperLimitForPreviousBlock = 0;
     for (TaxBlock* currentTaxBlock in taxBlockArray)
     {
         float limitForCurrentBlock = currentTaxBlock.mUpperLimit;
         float percentageForCurrentBlock = currentTaxBlock.mPercentage;
-        float fixedAmountForCurrrentBlock = currentTaxBlock.mFixedAmount;
         
         differenceIncomeForBlock = baseIncomeForBlock - upperLimitForPreviousBlock;
         
@@ -92,15 +83,34 @@
         else
             applicableIncomeForBlock = limitForCurrentBlock;
         
-        float taxForCurrentBlock = (applicableIncomeForBlock * percentageForCurrentBlock/100) + fixedAmountForCurrrentBlock;
+        if(applicableIncomeForBlock < 0)
+            break;
         
-        finalAnnualStateTaxesPaid += taxForCurrentBlock;
+        float taxForCurrentBlock = (applicableIncomeForBlock * percentageForCurrentBlock/100);
+        
+        finalTaxesPaid += taxForCurrentBlock;
         
         upperLimitForPreviousBlock = limitForCurrentBlock;
         baseIncomeForBlock = differenceIncomeForBlock;
     }
+
+    return finalTaxesPaid;
+}
+
+-(float) getAnnualStateTaxesPaid
+{
+    if(!self.mUserProfile)
+        return 0;
     
-    return finalAnnualStateTaxesPaid;
+    float stateTaxableIncome = [self getAnnualStateTaxableIncome];
+    NSArray* taxBlockArray = nil;
+    if(self.mUserProfile.mMaritalStatus == StatusMarried)
+        taxBlockArray = self.mStateMFJTaxTable;
+    else
+        taxBlockArray = self.mStateSingleTaxTable;
+
+    
+    return [self getTaxesForTable:taxBlockArray andTaxableIncome:stateTaxableIncome];
 }
 
 -(float) getAnnualFederalTaxesPaid
@@ -108,6 +118,14 @@
     if(!self.mUserProfile)
         return 0;
     
+    float federalTaxableIncome = [self getAnnualFederalTaxableIncome];
+    NSArray* taxBlockArray = nil;
+    if(self.mUserProfile.mMaritalStatus == StatusMarried)
+        taxBlockArray = self.mFederalMFJTaxTable;
+    else
+        taxBlockArray = self.mFederalSingleTaxTable;
+    
+    return [self getTaxesForTable:taxBlockArray andTaxableIncome:federalTaxableIncome];
     return 0;
 }
 
@@ -126,12 +144,16 @@
     if(!self.mUserProfile)
         return 0;
     
-    float baseDeduction = [self.mDeductionsAndExemptions[@"BaseDeductionCaliforniaState"] floatValue];
+    float finalDeduction = 0;
     
     if(self.mUserProfile.mMaritalStatus == StatusMarried)
-        return baseDeduction * 2;
+        finalDeduction = [self.mDeductionsAndExemptions[@"MarriedDeductionCaliforniaState"] floatValue];
     else
-        return baseDeduction;
+        finalDeduction = [self.mDeductionsAndExemptions[@"SingleDeductionCaliforniaState"] floatValue];
+    
+    finalDeduction += (self.mUserProfile.mNumberOfChildren) * [self.mDeductionsAndExemptions[@"ChildrenDeductionCaliforniaState"] floatValue];
+
+    return finalDeduction;
 }
 
 -(float) getStateItemizedDeduction
@@ -150,13 +172,16 @@
     if(!self.mUserProfile)
         return 0;
     
-    //float baseExemption = [self.mDeductionsAndExemptions[@"BaseExemptionCaliforniaState"] floatValue];
-    if (self.mUserProfile.mMaritalStatus == StatusMarried)
-        return (self.mUserProfile.mNumberOfChildren*315) + 102;
+    float finalExemption = 0;
+    
+    if(self.mUserProfile.mMaritalStatus == StatusMarried)
+        finalExemption = [self.mDeductionsAndExemptions[@"MarriedExemptionCaliforniaState"] floatValue];
     else
-        return 102;
-        
-    return 0;
+        finalExemption = [self.mDeductionsAndExemptions[@"SingleExemptionCaliforniaState"] floatValue];
+    
+    finalExemption += (self.mUserProfile.mNumberOfChildren) * [self.mDeductionsAndExemptions[@"ChildrenExemptionCaliforniaState"] floatValue];
+    
+    return finalExemption;
 }
 
 -(float) getAnnualStateTaxableIncome
@@ -181,12 +206,10 @@
     if(!self.mUserProfile)
         return 0;
     
-    float baseDeduction = [self.mDeductionsAndExemptions[@"BaseDeductionFedral"] floatValue];
-    
     if(self.mUserProfile.mMaritalStatus == StatusMarried)
-        return baseDeduction * 2;
+        return [self.mDeductionsAndExemptions[@"MarriedDeductionFederal"] floatValue];
     else
-        return baseDeduction;
+        return [self.mDeductionsAndExemptions[@"SingleDeductionFederal"] floatValue];;
 }
 
 -(float) getFederalItemizedDeduction
@@ -194,11 +217,10 @@
     if(!self.mUserProfile)
         return 0;
     
-    float propertyTaxesPaid = 0;
-    float interestOnHomeMortgage = 0;
     float stateTaxesPaid = [self getAnnualStateTaxesPaid];
+    float stateItemizedDeduction = [self getStateItemizedDeduction];
     
-    return stateTaxesPaid + propertyTaxesPaid + interestOnHomeMortgage;
+    return stateTaxesPaid + stateItemizedDeduction;
 }
 
 -(float) getFederalExemptions
@@ -206,15 +228,16 @@
     if(!self.mUserProfile)
         return 0;
     
-    float baseExemption = [self.mDeductionsAndExemptions[@"BaseExemptionFederal"] floatValue];
-    if (self.mUserProfile.mMaritalStatus == StatusMarried)
-    {
-        return (baseExemption * 2) + (baseExemption * self.mUserProfile.mNumberOfChildren);
-    }
+    float finalExemption = 0;
+    
+    if(self.mUserProfile.mMaritalStatus == StatusMarried)
+        finalExemption = [self.mDeductionsAndExemptions[@"MarriedExemptionFederal"] floatValue];
     else
-    {
-        return baseExemption + (baseExemption * self.mUserProfile.mNumberOfChildren);
-    }
+        finalExemption = [self.mDeductionsAndExemptions[@"SingleExemptionFederal"] floatValue];
+    
+    finalExemption += (self.mUserProfile.mNumberOfChildren) * [self.mDeductionsAndExemptions[@"ChildrenExemptionFederal"] floatValue];
+    
+    return finalExemption;
 }
 
 -(float) getAnnualFederalTaxableIncome

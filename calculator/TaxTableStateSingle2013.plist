@@ -5,72 +5,54 @@
 	<dict>
 		<key>limitsDifference</key>
 		<integer>7582</integer>
-		<key>fixedAmount</key>
-		<integer>0</integer>
 		<key>percentage</key>
 		<integer>1</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>17976</integer>
-		<key>fixedAmount</key>
-		<real>75.81999999999999</real>
 		<key>percentage</key>
 		<integer>2</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>28371</integer>
-		<key>fixedAmount</key>
-		<real>283.7</real>
 		<key>percentage</key>
 		<integer>4</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>39384</integer>
-		<key>fixedAmount</key>
-		<real>699.5</real>
 		<key>percentage</key>
 		<integer>6</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>49774</integer>
-		<key>fixedAmount</key>
-		<real>1360.28</real>
 		<key>percentage</key>
 		<integer>8</integer>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>254250</integer>
-		<key>fixedAmount</key>
-		<real>2191.48</real>
 		<key>percentage</key>
 		<real>9.300000000000001</real>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>305100</integer>
-		<key>fixedAmount</key>
-		<real>21207.75</real>
 		<key>percentage</key>
 		<real>10.3</real>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<integer>508500</integer>
-		<key>fixedAmount</key>
-		<real>26445.3</real>
 		<key>percentage</key>
 		<real>11.3</real>
 	</dict>
 	<dict>
 		<key>limitsDifference</key>
 		<real>100000000</real>
-		<key>fixedAmount</key>
-		<real>49429.5</real>
 		<key>percentage</key>
 		<real>12.3</real>
 	</dict>

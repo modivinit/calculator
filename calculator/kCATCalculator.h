@@ -19,4 +19,14 @@
 -(float) getMonthlyLifeStyleIncomeForRental;
 -(float) getAnnualStateTaxesPaid;
 -(float) getAnnualFederalTaxesPaid;
+
+-(float) getStateStandardDeduction;
+-(float) getStateItemizedDeduction;
+-(float) getStateExemptions;
+-(float) getAnnualStateTaxableIncome;
+
+-(float) getFederalStandardDeduction;
+-(float) getFederalItemizedDeduction;
+-(float) getFederalExemptions;
+-(float) getAnnualFederalTaxableIncome;
 @end
