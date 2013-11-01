@@ -37,7 +37,14 @@
     userProfile.mMonthlyOtherFixedCosts = 840/12;
     userProfile.mMonthlyRent = 1300;
     
-    kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userProfile];
+    homeAndLoanInfo* homeAndLoan = [[homeAndLoanInfo alloc] init];
+    homeAndLoan.mHomeListPrice = 440000;
+    homeAndLoan.mHOAFees = 250;
+    homeAndLoan.mDownPaymentAmount = 20.0/100.0 * homeAndLoan.mHomeListPrice;
+    homeAndLoan.mLoanInterestRate = 4.20f;
+    homeAndLoan.mNumberOfMortgageMonths = 30*NUMBER_OF_MONTHS_IN_YEAR;
+    
+    kCATCalculator* calculator = [[kCATCalculator alloc] initWithUserProfile:userProfile andHome:homeAndLoan];
     float monthlylifestyle = [calculator getMonthlyLifeStyleIncomeForRental];
     self.mCurrentLifestyleIncomeLabel.text = [NSString stringWithFormat:@"Montly lifestyle %.2f", monthlylifestyle];
     
@@ -66,6 +73,13 @@
     
     result = [calculator getFederalExemptions];
     self.mFederalExemptionsLabel.text = [NSString stringWithFormat:@"Federal exemptions: %.2f", result];
+    
+    result = [calculator getFederalItemizedDeduction];
+    self.mFederalItemizedDeduction.text = [NSString stringWithFormat:@"Fed Itemized deduction: %.2f", result];
+    
+    result = [calculator getStateItemizedDeduction];
+    self.mStateItemizedDeduction.text = [NSString stringWithFormat:@"State Itemized deduction: %.2f", result];
+
 }
 
 - (void)didReceiveMemoryWarning

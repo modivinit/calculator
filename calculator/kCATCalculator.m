@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
+#define NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST 10
 #import "kCATCalculator.h"
 #import "UserProfileObject.h"
 #import "CalculatorUtilities.h"
@@ -17,11 +18,12 @@
 @property (nonatomic, strong) NSArray* mStateMFJTaxTable;
 @property (nonatomic, strong) NSArray* mFederalSingleTaxTable;
 @property (nonatomic, strong) NSArray* mFederalMFJTaxTable;
+@property (nonatomic, strong) homeAndLoanInfo* mHome;
 @end
 
 @implementation kCATCalculator
 
-- (id) initWithUserProfile:(UserProfileObject*) userProfile
+- (id) initWithUserProfile:(UserProfileObject*) userProfile andHome:(homeAndLoanInfo *)home
 {
     self = [super init];
     if (self)
@@ -35,6 +37,8 @@
         self.mStateMFJTaxTable = [self importTableFromFile:@"TaxTableStateMFJ2013"];
         self.mFederalSingleTaxTable = [self importTableFromFile:@"TaxTableFederalSingle2013"];
         self.mFederalMFJTaxTable = [self importTableFromFile:@"TaxTableFederalMFJ2013"];
+        
+        self.mHome = home;
     }
     
     return self;
@@ -136,9 +140,9 @@
     
     return (self.mUserProfile.mAnnualGrossIncome - self.mUserProfile.mAnnualRetirementSavings);
 }
-
-///////////////////StateTaxes/////////////////
-
+///////////////////////// ///////////////////////////////////////
+///////////////////////// State calculations ////////////////////
+///////////////////////// ///////////////////////////////////////
 -(float) getStateStandardDeduction
 {
     if(!self.mUserProfile)
@@ -163,6 +167,12 @@
     
     float interestOnHomeMortgage = 0;
     float propertyTaxesPaid = 0;
+
+    if(self.mHome)
+    {
+        interestOnHomeMortgage = [self.mHome getInterestAveragedOverYears:NUMBER_OF_YEARS_FOR_AVERAGE_INTEREST];
+        propertyTaxesPaid = [self.mHome getAnnualPropertyTaxes];
+    }
 
     return interestOnHomeMortgage + propertyTaxesPaid;
 }
@@ -199,7 +209,9 @@
     return (adjustedAnnualGrossIncome - (stateDeduction + exemption));
 }
 
-///////////////////FederalTaxes/////////////////
+///////////////////////// ///////////////////////////////////////
+///////////////////////// Federal Calculations ////////////////////
+///////////////////////// ///////////////////////////////////////
 
 -(float) getFederalStandardDeduction
 {

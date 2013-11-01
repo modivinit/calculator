@@ -30,6 +30,7 @@
 		D6A2CBF2181F0E7900CD0BF0 /* CalculatorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A2CBF1181F0E7900CD0BF0 /* CalculatorUtilities.m */; };
 		D6A2CBF4181F150700CD0BF0 /* TaxTableStateSingle2013.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6A2CBF3181F150700CD0BF0 /* TaxTableStateSingle2013.plist */; };
 		D6A2CBFD181F1C8D00CD0BF0 /* TaxBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A2CBFC181F1C8D00CD0BF0 /* TaxBlock.m */; };
+		D6E9958918230194000EFD45 /* homeAndLoanInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E9958818230194000EFD45 /* homeAndLoanInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		D6A2CBF3181F150700CD0BF0 /* TaxTableStateSingle2013.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaxTableStateSingle2013.plist; sourceTree = "<group>"; };
 		D6A2CBFB181F1C8D00CD0BF0 /* TaxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxBlock.h; sourceTree = "<group>"; };
 		D6A2CBFC181F1C8D00CD0BF0 /* TaxBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaxBlock.m; sourceTree = "<group>"; };
+		D6E9958718230194000EFD45 /* homeAndLoanInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeAndLoanInfo.h; sourceTree = "<group>"; };
+		D6E9958818230194000EFD45 /* homeAndLoanInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeAndLoanInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 		D6A2CBA6181EEF0600CD0BF0 = {
 			isa = PBXGroup;
 			children = (
+				D6E9958718230194000EFD45 /* homeAndLoanInfo.h */,
+				D6E9958818230194000EFD45 /* homeAndLoanInfo.m */,
 				D6A2CBFB181F1C8D00CD0BF0 /* TaxBlock.h */,
 				D6A2CBFC181F1C8D00CD0BF0 /* TaxBlock.m */,
 				9EF8F149181F77E1005C5ED1 /* TaxTableFederalMFJ2013.plist */,
@@ -290,6 +295,7 @@
 			files = (
 				D6A2CBF2181F0E7900CD0BF0 /* CalculatorUtilities.m in Sources */,
 				D6A2CBEB181EFC6300CD0BF0 /* UserProfileObject.m in Sources */,
+				D6E9958918230194000EFD45 /* homeAndLoanInfo.m in Sources */,
 				D6A2CBE8181EF5A300CD0BF0 /* kCATCalculator.m in Sources */,
 				D6A2CBE4181EEF3000CD0BF0 /* ResultsViewController.m in Sources */,
 				D6A2CBC3181EEF0600CD0BF0 /* AppDelegate.m in Sources */,

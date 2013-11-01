@@ -18,4 +18,6 @@
 @property (nonatomic) IBOutlet UILabel* mFederalDeductionsLabel;
 @property (nonatomic) IBOutlet UILabel* mStateExemptionsLabel;
 @property (nonatomic) IBOutlet UILabel* mFederalExemptionsLabel;
+@property (nonatomic) IBOutlet UILabel* mFederalItemizedDeduction;
+@property (nonatomic) IBOutlet UILabel* mStateItemizedDeduction;
 @end

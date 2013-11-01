@@ -6,15 +6,14 @@
 //  Copyright (c) 2013 Kunance. All rights reserved.
 //
 
-#define NUMBER_OF_MONTHS_IN_YEAR 12
-
 #import <Foundation/Foundation.h>
 #import "UserProfileObject.h"
+#import "homeAndLoanInfo.h"
 
 @interface kCATCalculator : NSObject
 @property (nonatomic, strong) UserProfileObject* mUserProfile;
 
-- (id) initWithUserProfile:(UserProfileObject*) userProfile;
+- (id) initWithUserProfile:(UserProfileObject*) userProfile andHome:(homeAndLoanInfo*) home;
 
 -(float) getMonthlyLifeStyleIncomeForRental;
 -(float) getAnnualStateTaxesPaid;
